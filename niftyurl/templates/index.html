@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}NiftyURL{% endblock title %}
+{% block content %}
+<main>
+  <section class="container my-5 px-4">
+    <h1 class="text-center"><span style="color:red">Nifty</span>URL</h1>
+    <p class="text-center my-4">
+      Create your Nifty URL automatically, or propose a short name
+    </p>
+
+    <div class="container">
+      <div class="row my-3">
+        <div class="col-sm">
+        </div>
+        <div class="col-sm">
+          <form method="POST" novalidate>
+            {{ form.csrf_token }}
+            <div>
+              <div>
+                {{ form.original_link(class="form-control form-control-lg py-2 mb-3", id="form-title", placeholder=form.original_link.label.text) }}
+                <p><span style="color:red">
+                  {% if url_exists %}
+                    Hey buddy, there is already a Nifty URL for this one:<br>
+                    <a href={{url_exists}}>{{ url_exists }}</a>
+                  {% endif %}
+                </span></p>
+              </div>
+              <div>
+                {{ form.custom_id(class="form-control form-control-lg py-2 mb-3", id="form-link", placeholder=form.custom_id.label.text) }}
+                <p><span style="color:red">
+                  {% with messages = get_flashed_messages(category_filter=["form-link"]) %}
+                    {% if messages %}
+                      {% for message in messages %}
+                        {{ message }}
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+                </span></p>
+              </div>
+
+              {{ form.submit(class="btn btn-primary", value="Create") }}
+            </div>
+          </form>
+        </div>
+        <div class="col-sm">
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row ">
+        <div class="col-sm">
+        </div>
+        <div class="col-sm">
+          <p class="text-center">
+          <h5 class="text-center">
+            {% if url_generated %}
+              Here's your Nifty URL, buddy:<br>
+              <a href="{{url_generated}}">{{ url_generated }}</a>
+            {% endif %}
+          </h5>
+          </p>
+        </div>
+        <div class="col-sm">
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+{% endblock content %}
