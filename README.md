@@ -2,17 +2,17 @@
 
 ---
 
-### О сервисе
+## About
 
-Простой и изящный сервис на Flask для укорачивания ссылок. Готов к развёртке на любом удалённом сервере.
+A simple and elegant Flask app that generates short URLs. Ready for deploy at any remote server.
 
-Образует ссылки вида ``https://<адрес_сервера>/<короткое_имя>``, при этом короткое имя можно задать самостоятельно, либо сгенерировать автоматически.
+Creates links that will look like ``https://<server_location>/<short_id>``, where `short_id` can be either specified by user, or generated automatically.
 
-Работает в двух режимах - минималистичный веб-интерфейс и API.
+Can be used in two modes - minimalistic web interface and API.
 
 ---
 
-### Стек технологий
+## Stack
 
 * Python 3.12
 * Flask 2.0
@@ -21,16 +21,16 @@
 
 ---
 
-### Установка и запуск
+## Installation and startup
 
-Клонировать репозиторий и перейти в него в командной строке:
+Clone the repo and change directory:
 
 ```
 git clone https://github.com/zhmur-dev/NiftyURL.git
 cd NiftyURL
 ```
 
-Создать и активировать виртуальное окружение:
+Create and activate virtual environment:
 
 ```
 # для Linux / MacOS:
@@ -42,36 +42,36 @@ python -m venv venv
 source venv/Scripts/activate
 ```
 
-Обновить пакетный менеджер и установить зависимости из файла requirements.txt:
+Update package manager and install requirements:
 
 ```
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Обновить локальную базу данных Flask:
+Update local Flask database:
 
 ```
 flask db upgrade
 ```
 
-Запустить сервис:
+Run the app:
 
 ```
 flask run
 ```
 
-При стандартном локальном запуске веб-интерфейс сервиса будет доступен по адресу: `http://127.0.0.1:5000/`.
+For a standard local run, web interface is made available at: `http://127.0.0.1:5000/`.
 
-Для полноценной работы и деплоя на сервер в корневой директории сервиса нужно создать и заполнить файл `.env` по образцу, приведённому в `.env.example`.
+For normal operation and server deploy please create an `.env` file in root directory and fill it based on the example provided in  `.env.example`.
 
 ---
 
-### Работа в режиме API
+### Operation in API mode
 
-Сервис обрабатывает API-запросы, отправленные из любого клиента.
+NifryURL processes API requests sent from any client.
 
-#### На создание новой короткой ссылки:
+To create a new short URL:
 ```
 POST  /api/id/
 
@@ -89,7 +89,7 @@ POST  /api/id/
 }
 ```
 
-На получение оригинальной ссылки из базы данных:
+To obtain the original URL from database:
 ```
 GET  /api/id/{short_id}/
 ```
@@ -103,5 +103,5 @@ GET  /api/id/{short_id}/
 
 ---
 
-### Автор
-* Александр [zhmur-dev](https://github.com/zhmur-dev) Жмурков
+## Author
+Alexander [zhmur-dev](https://github.com/zhmur-dev) Zhmurkov
