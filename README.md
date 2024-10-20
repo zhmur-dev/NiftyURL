@@ -49,9 +49,11 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Update local Flask database:
+Before launching the app for the first time, set the `FLASK_APP` variable in your virtual environment and update local database:
 
 ```
+export FLASK_APP=niftyurl   # MacOS / Linux
+set FLASK_APP=niftyurl      # Windows
 flask db upgrade
 ```
 

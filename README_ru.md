@@ -49,13 +49,15 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Обновить локальную базу данных Flask:
+Перед первым запуском приложения задать переменную `FLASK_APP` в виртуальном окружении и обновить локальную базу данных:
 
 ```
+export FLASK_APP=niftyurl   # MacOS / Linux
+set FLASK_APP=niftyurl      # Windows
 flask db upgrade
 ```
 
-Запустить сервис:
+Запустить приложение:
 
 ```
 flask run
